@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { Store, Action } from '@ngrx/store';
+import { ColorSchemeService } from './theme/color-scheme.service';
 import { ThemeService } from './theme/theme.service';
+interface AppState{
+  dark:boolean
+}
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -8,15 +13,19 @@ import { ThemeService } from './theme/theme.service';
 export class AppComponent {
   title = 'countries-app';
   wrapperVariant = 'blue';
-  constructor(private themeService: ThemeService) {}
+  dark:boolean;
+  constructor(private themeService: ThemeService, private colorSchemeService: ColorSchemeService, private store: Store<AppState>) {
+    this.colorSchemeService.load();
+    this.dark=false;
+  }
 
   toggle() {
     const active = this.themeService.getActiveTheme() ;
-    if (active.name === 'light') {
-      this.themeService.setTheme('dark');
-    } else {
-      this.themeService.setTheme('light');
-    }
+    const accion:Action={
+      type:'CHANGE',
+    };
+    this.store.dispatch(accion);
+      this.dark=!this.dark;
   }
 
 }

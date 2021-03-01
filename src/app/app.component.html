@@ -1,29 +1,27 @@
-<div app-theme class="col col-12">
-  <div class="main container col col-12">
-
-
-      <nav class="navbar ">
+<!-- <div app-theme class="col col-12">
+  <div class="main container col col-12"> -->
+      <nav class="navbar main " app-theme>
         <a class="navbar-brand">
           Where in the World?
         </a>
         <div class="btn-group-toggle" data-toggle="buttons">
           <label class="btn btn-secondary active">
-            <input type="checkbox" (click)="toggle()" > Dark
+            <input type="checkbox" (click)="toggle()" >
+            <span *ngIf="dark" class="material-icons">
+              nightlight_round
+              </span>
+              <span *ngIf="!dark" class="material-icons">
+                brightness_5
+                </span>
+            Dark
             Mode
           </label>
         </div>
       </nav>
-
     <body>
-
-
-
-
-
       <router-outlet  ></router-outlet>
     </body>
     <footer>
-
-    </footer>
+    </footer><!--
   </div>
-</div>
+</div> -->

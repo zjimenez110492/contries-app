@@ -12,7 +12,10 @@ import { lightTheme } from './theme/light-theme';
 import { darkTheme } from './theme/dark-theme';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatDialogModule} from '@angular/material/dialog';
+//Ngrx
 
+import {StoreModule} from '@ngrx/store'
+import { darkMode } from './dark-mode.reducer';
 @NgModule({
   declarations: [
     AppComponent
@@ -24,6 +27,10 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatDialogModule,
 AdminRoutes,
 NgbModule,
+StoreModule.forRoot({dark: darkMode})
+,
+
+
 ThemeModule.forRoot({
   themes: [lightTheme, darkTheme],
   active: 'light'

@@ -1,6 +1,9 @@
 import { Injectable, Inject, EventEmitter } from '@angular/core';
+import { Store } from '@ngrx/store';
 import { THEMES, ACTIVE_THEME, Theme } from './symbols';
-
+interface AppState{
+  dark:boolean
+}
 @Injectable()
 export class ThemeService {
 
@@ -8,8 +11,15 @@ export class ThemeService {
 
   constructor(
     @Inject(THEMES) public themes: Theme[],
-    @Inject(ACTIVE_THEME) public theme: string
+    @Inject(ACTIVE_THEME) public theme: string,
+    private store: Store<AppState>
   ) {
+    this.store.subscribe(state=>{
+      if(state.dark)
+        this.setTheme('dark');
+        else
+          this.setTheme('light');
+    });
   }
 
   getActiveTheme() {
