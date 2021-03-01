@@ -1,25 +1,40 @@
-<div class="card">
-  <div class="card-title">
+<mat-card >
+  <mat-card-header>
     <div class="box1">
-      <img class="staff" src="{{country.flag}}">
-  </div>
+      <img class="staff" src="{{ country.flag }}" />
+    </div>
+  </mat-card-header>
+  <mat-card-content>
+    <p>
+      <strong>{{ country.name }}</strong>
+    </p>
+    <p class="description">Native Name: {{ country.nativeName }}</p>
+    <p class="description">Population: {{ country.population }}</p>
+    <p class="description">Region: {{ country.region }}</p>
+    <p class="description">Sub Region: {{ country.subregion }}</p>
+    <p class="description">Capital: {{ country.capital }}</p>
 
-  </div>
-  <div class="card-body">
-    <p><strong>{{country.name}}</strong></p>
-    <p class="description">Native Name: {{country.nativeName}} </p>
-    <p class="description">Population: {{country.population}} </p>
-    <p class="description">Region: {{country.region}} </p>
-    <p class="description">Sub Region: {{country.subregion}} </p>
-    <p class="description">Capital: {{country.capital}} </p>
+    <p class="description">Top Level Domain: {{ country.topLevelDomain }}</p>
+    <p class="description">
+      Currencies:
+      <small *ngFor="let currency of country.currencies">{{
+        currency.name
+      }}</small>
+    </p>
+    <p class="description">
+      Languajes:
+      <small *ngFor="let language of country.languages">{{
+        language.name
+      }}</small>
+    </p>
 
-
-    <p class="description">Top Level Domain: {{country.topLevelDomain}} </p>
-    <p class="description">Currencies: <small *ngFor="let currency of country.currencies">{{currency.name}}</small> </p>
-    <p class="description">Languajes: <small *ngFor="let language of country.languages">{{language.name}}</small> </p>
-
-    <hr>
+    <hr />
     <p class="description"><strong>Border Countries</strong></p>
-    <button *ngFor="let border of country.borders" (click)="countryCode(border)">{{border}}</button>
-  </div>
-</div>
+    <button
+      *ngFor="let border of country.borders"
+      (click)="countryCode(border)"
+    >
+      {{ border }}
+    </button>
+  </mat-card-content>
+</mat-card>

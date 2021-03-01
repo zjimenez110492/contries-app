@@ -12,6 +12,7 @@ import { lightTheme } from './theme/light-theme';
 import { darkTheme } from './theme/dark-theme';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatCardModule} from '@angular/material/card'
 //Ngrx
 
 import {StoreModule} from '@ngrx/store'
@@ -24,6 +25,7 @@ import { darkMode } from './dark-mode.reducer';
     BrowserModule,
     AppRoutingModule,
     AdminModule,
+    MatCardModule,
     MatDialogModule,
 AdminRoutes,
 NgbModule,
