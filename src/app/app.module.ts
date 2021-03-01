@@ -10,7 +10,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ThemeModule } from './theme/theme.module';
 import { lightTheme } from './theme/light-theme';
 import { darkTheme } from './theme/dark-theme';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatDialogModule} from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -20,12 +21,14 @@ import { darkTheme } from './theme/dark-theme';
     BrowserModule,
     AppRoutingModule,
     AdminModule,
+    MatDialogModule,
 AdminRoutes,
 NgbModule,
 ThemeModule.forRoot({
   themes: [lightTheme, darkTheme],
   active: 'light'
-})
+}),
+BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

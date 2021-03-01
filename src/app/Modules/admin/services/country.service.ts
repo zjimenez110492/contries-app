@@ -21,6 +21,9 @@ getAllCountries(): Observable<any> {
   console.log("RUTA:   ",RUTA+'all');
   return this.http.get(RUTA+'all');
 }
+getCountryCode(code:string): Observable<any>{
+  return this.http.get(RUTA+'alpha/'+code);
+}
 /* crearActividad(id: number): Actividad {
 
   const sem = SEMANAS[Math.round(Math.random() * (SEMANAS.length - 1))];

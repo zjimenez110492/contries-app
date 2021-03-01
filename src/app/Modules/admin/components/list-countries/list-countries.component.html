@@ -1,12 +1,16 @@
 <div class="form-group">
   <div class="row ">
       <div class="card  col-xl-3 col-lg-6 col-md-12 col-sm-12 separar"
-          *ngFor="let country of countries; let index = index">
+          *ngFor="let country of countries; let index = index" (click)="view(country)">
           <div class="box1">
               <img class="staff" src="{{country.flag}}">
           </div>
-          <p style="text-align: center;">Nombre:  {{country.name}}</p>
-          <p class="cargo">Capital:  {{country.capital}}</p>
+          <p ><strong>{{country.name}}</strong></p>
+          <p class="description">Population:  {{country.population}}</p>
+          <p class="description">Región:  {{country.region}}</p>
+          <p class="description">Capital:  {{country.capital}}</p>
+
+
       </div>
   </div>
 </div>
