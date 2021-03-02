@@ -13,10 +13,12 @@ import { darkTheme } from './theme/dark-theme';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatCardModule} from '@angular/material/card'
+import {MatSelectModule} from '@angular/material/select';
 //Ngrx
 
 import {StoreModule} from '@ngrx/store'
 import { darkMode } from './dark-mode.reducer';
+
 @NgModule({
   declarations: [
     AppComponent
@@ -27,6 +29,7 @@ import { darkMode } from './dark-mode.reducer';
     AdminModule,
     MatCardModule,
     MatDialogModule,
+    MatSelectModule,
 AdminRoutes,
 NgbModule,
 StoreModule.forRoot({dark: darkMode})

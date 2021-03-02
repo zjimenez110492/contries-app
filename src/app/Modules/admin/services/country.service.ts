@@ -1,30 +1,32 @@
-import { Country } from './../../../models/country.model';
-import { Injectable } from '@angular/core';
-import { DatePipe } from '@angular/common';
-import { HttpHeaders, HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Country } from './../../../models/country.model'
+import { Injectable } from '@angular/core'
+import { DatePipe } from '@angular/common'
+import { HttpHeaders, HttpClient } from '@angular/common/http'
+import { Observable } from 'rxjs'
 /** Constants used to fill up our data base. */
 
-  const RUTA="https://restcountries.eu/rest/v2/";
+const RUTA = 'https://restcountries.eu/rest/v2/'
 @Injectable({
   providedIn: 'root'
 })
-
-
 export class CountryService {
+  constructor(private http: HttpClient) {}
 
-constructor( private http: HttpClient) { }
-id = 0;
-cump=0;
 
-getAllCountries(): Observable<any> {
-  console.log("RUTA:   ",RUTA+'all');
-  return this.http.get(RUTA+'all');
-}
-getCountryCode(code:string): Observable<any>{
-  return this.http.get(RUTA+'alpha/'+code);
-}
-/* crearActividad(id: number): Actividad {
+  getAllCountries(): Observable<any> {
+    console.log('RUTA:   ', RUTA + 'all');
+    return this.http.get(RUTA + 'all');
+  }
+  getCountryCode(code: string): Observable<any> {
+    return this.http.get(RUTA + 'alpha/' + code);
+  }
+  getCountriesByRegion(region: string): Observable<any> {
+    return this.http.get(RUTA + 'region/' + region);
+  }
+  getSearchCountryName(name: string): Observable<any> {
+    return this.http.get(RUTA + 'name/' + name);
+  }
+  /* crearActividad(id: number): Actividad {
 
   const sem = SEMANAS[Math.round(Math.random() * (SEMANAS.length - 1))];
   const entr = ENTREGAS[Math.round(Math.random() * (ENTREGAS.length - 1))];
@@ -48,6 +50,4 @@ getCountryCode(code:string): Observable<any>{
     visibilidad:1-this.cump
     };
   } */
-
-
 }

@@ -5,6 +5,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { CountryComponent } from './components/country/country.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatCardModule} from '@angular/material/card';
+import { MatSelectModule } from '@angular/material/select';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [ListCountriesComponent, CountryComponent],
@@ -12,7 +15,10 @@ import {MatCardModule} from '@angular/material/card';
     CommonModule,
     HttpClientModule,
     MatDialogModule,
-    MatCardModule
+    MatCardModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    ReactiveFormsModule
   ]
 })
 export class AdminModule { }

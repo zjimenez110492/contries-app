@@ -1,16 +1,38 @@
+<form [formGroup]="selectRegion">
+  <div class="row">
+    <div class="col">
+      <input class="form-control"  formControlName="search" type="text" placeholder="Search" />
+    </div>
+    <div class="col">
+      <select
+        type="text"
+        class="form-control"
+        formControlName="region"
+        style="width: 5cm"
+      >
+        <option [ngValue]="null">Filter By Region</option>
+        <option [ngValue]="oe" *ngFor="let oe of regiones">{{ oe }}</option>
+      </select>
+    </div>
+  </div>
+</form>
+
 <div class="form-group">
-  <div class="row ">
-      <mat-card class="  col-xl-3 col-lg-6 col-md-12 col-sm-12 "
-          *ngFor="let country of countries; let index = index" (click)="view(country)">
-          <div class="box1">
-              <img class="staff" src="{{country.flag}}">
-          </div>
-          <p ><strong>{{country.name}}</strong></p>
-          <p class="description">Population:  {{country.population}}</p>
-          <p class="description">Región:  {{country.region}}</p>
-          <p class="description">Capital:  {{country.capital}}</p>
-
-
-      </mat-card>
+  <div class="row">
+    <mat-card
+      class="col-xl-3 col-lg-3 col-md-4 col-sm-6"
+      *ngFor="let country of countries; let index = index"
+      (click)="view(country)"
+    >
+      <div class="box1">
+        <img class="staff" src="{{ country.flag }}" />
+      </div>
+      <p>
+        <strong>{{ country.name }}</strong>
+      </p>
+      <p class="description">Population: {{ country.population }}</p>
+      <p class="description">Región: {{ country.region }}</p>
+      <p class="description">Capital: {{ country.capital }}</p>
+    </mat-card>
   </div>
 </div>
