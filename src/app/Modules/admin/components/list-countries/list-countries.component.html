@@ -25,7 +25,7 @@
       (click)="view(country)"
     >
       <div class="box1">
-        <img class="staff" src="{{ country.flag }}" />
+        <img data-src="{{ country.flag }}" class="lazyload staff "  />
       </div>
       <p>
         <strong>{{ country.name }}</strong>

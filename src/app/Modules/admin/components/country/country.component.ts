@@ -21,4 +21,7 @@ export class CountryComponent implements OnInit {
     this.country=result;
     });
   }
+  back(){
+    this.dialogRef.close();
+  }
 }
